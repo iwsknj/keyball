@@ -24,38 +24,82 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
   [0] = LAYOUT_universal(
-    KC_ESC   , KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                                        KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     , KC_DEL   ,
-    KC_TAB   , KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                                        KC_H     , KC_J     , KC_K     , KC_L     , KC_SCLN  , S(KC_7)  ,
-    KC_LSFT  , KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     ,                                        KC_N     , KC_M     , KC_COMM  , KC_DOT   , KC_SLSH  , KC_INT1  ,
-              KC_LALT,KC_LGUI,LCTL_T(KC_LNG2)     ,LT(1,KC_SPC),LT(3,KC_LNG1),                  KC_BSPC,LT(2,KC_ENT), RCTL_T(KC_LNG2),     KC_RALT  , KC_PSCR
+    KC_TAB, KC_Q , KC_W, KC_E, KC_R, KC_T,                                  KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
+    CTL_T(KC_ESC), KC_A , KC_S, KC_D, KC_F, KC_G,                           KC_H, KC_J, KC_K, KC_L, KC_SCLN, LT(5,KC_QUOT),
+    KC_LSFT, KC_Z , KC_X, KC_C, KC_V, KC_B,                                 KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
+    _______, _______, KC_LGUI, LT(2,KC_LNG2),LT(1,KC_SPC),                  LT(4, KC_ENT), LT(3,KC_LNG1), _______, _______, KC_RALT
+    // tab, q, w, e, r, t,                                                  y, u, i, o, p, bspc
+    // esc, a, s, d, f, g,                                                  h, j, k, l, ;, hold:layer5 tap:'
+    // shift, z, x, c, v, b,                                                n, m, ,, ., /, rshift
+    // command, hold:layer2 tap:lng2, hold:layer1 tap:lng1, space,          hold:layer4 tap:ent, hold:layer2 tap:lng1, alt
   ),
 
   [1] = LAYOUT_universal(
-    SSNP_FRE ,  KC_F1   , KC_F2    , KC_F3   , KC_F4    , KC_F5    ,                                         KC_F6    , KC_F7    , KC_F8    , KC_F9    , KC_F10   , KC_F11   ,
-    SSNP_VRT ,  _______ , _______  , KC_UP   , KC_ENT   , KC_DEL   ,                                         KC_PGUP  , KC_BTN1  , KC_UP    , KC_BTN2  , KC_BTN3  , KC_F12   ,
-    SSNP_HOR ,  _______ , KC_LEFT  , KC_DOWN , KC_RGHT  , KC_BSPC  ,                                         KC_PGDN  , KC_LEFT  , KC_DOWN  , KC_RGHT  , _______  , _______  ,
-                  _______  , _______ , _______  ,         _______  , _______  ,                   _______  , _______  , _______       , _______  , _______
+    _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,                   _______, KC_MS_BTN1, KC_MS_BTN2, SCRL_MO, KC_MS_BTN3, _______,
+    _______, _______, _______, _______, _______, _______,                   _______, KC_MS_BTN4, KC_MS_BTN5, _______, _______, _______,
+    _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______
+    // ___, ___, ___, ___, ___, ___,                                        ___, ___, ___, ___, ___, ___,
+    // ___, ___, ___, ___, ___, ___,                                        ___, mouse btn1, mouse btn2, scroll mode, mouse btn3, ___,
+    // ___, ___, ___, ___, ___, ___,                                        ___, mouse btn4, mouse btn5, ___, ___, ___,
+    // ___, ___, ___, ___, ___, ___,                                        ___, ___, ___, ___, ___, ___,
   ),
 
   [2] = LAYOUT_universal(
-    _______  ,S(KC_QUOT), KC_7     , KC_8    , KC_9     , S(KC_8)  ,                                         S(KC_9)  , S(KC_1)  , S(KC_6)  , KC_LBRC  , S(KC_4)  , _______  ,
-    _______  ,S(KC_SCLN), KC_4     , KC_5    , KC_6     , KC_RBRC  ,                                         KC_NUHS  , KC_MINS  , S(KC_EQL), S(KC_3)  , KC_QUOT  , S(KC_2)  ,
-    _______  ,S(KC_MINS), KC_1     , KC_2    , KC_3     ,S(KC_RBRC),                                        S(KC_NUHS),S(KC_INT1), KC_EQL   ,S(KC_LBRC),S(KC_SLSH),S(KC_INT3),
-                  KC_0     , KC_DOT  , _______  ,         _______  , _______  ,                   KC_DEL   , _______  , _______       , _______  , _______
+    KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
+    _______, _______, _______, _______, _______, _______,                   KC_BSLS, KC_PLUS, KC_PEQL, KC_LCBR, KC_RCBR, KC_MINS,
+    _______, _______, _______, _______, _______, _______,                   KC_PIPE, _______, _______, KC_LBRC, KC_RBRC, KC_UNDS,
+    _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______
+    // ~, !, @, #, $, %,                                                    ^, &, *, (, ), ___
+    // ___, ___, ___, ___, ___, ___,                                        \, +, =, {, }, -
+    // ___, ___, ___, ___, ___, ___,                                        |, ___, ___, [, ], _
   ),
 
   [3] = LAYOUT_universal(
-    RGB_TOG  , AML_TO   , AML_I50  , AML_D50  , _______  , _______  ,                                        RGB_M_P  , RGB_M_B  , RGB_M_R  , RGB_M_SW , RGB_M_SN , RGB_M_K  ,
-    RGB_MOD  , RGB_HUI  , RGB_SAI  , RGB_VAI  , _______  , SCRL_DVI ,                                        RGB_M_X  , RGB_M_G  , RGB_M_T  , RGB_M_TW , _______  , _______  ,
-    RGB_RMOD , RGB_HUD  , RGB_SAD  , RGB_VAD  , _______  , SCRL_DVD ,                                        CPI_D1K  , CPI_D100 , CPI_I100 , CPI_I1K  , _______  , KBC_SAVE ,
-                  QK_BOOT  , KBC_RST  , _______  ,        _______  , _______  ,                   _______  , _______  , _______       , KBC_RST  , QK_BOOT
+    KC_GRV, KC_P1, KC_P2, KC_P3, KC_P4, KC_P5,                              KC_P6, KC_P7, KC_P8, KC_P9, KC_P0, _______,
+    _______, _______, _______, _______, _______, _______,                   KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, C(KC_LEFT), C(KC_RIGHT),
+    _______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,                             KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, _______,
+    _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______
+    // `, 1, 2, 3, 4, 5,                                                     6, 7, 8, 9, 0, ___
+    // ___, ___, ___, ___, ___, ___,                                        left, down, up, right, left, right
+    // ___, f1, f2, f3, f4, f5,                                              f6, f7, f8, f9, f10, ___
+    // ___, ___, ___, ___, ___, ___,                                        ___, ___, ___, ___, ___, ___,
   ),
+
+  [4] = LAYOUT_universal(
+    KBC_RST, KBC_SAVE, CPI_I100, CPI_D100, CPI_I1K, CPI_D1K,                SCRL_TO, SCRL_MO, SCRL_DVI, SCRL_DVD, AML_TO, _______,
+    _______, AML_I50, AML_D50, SSNP_VRT, SSNP_HOR, SSNP_FRE,                _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______
+    // kb 0, kb 1, kb 2, kb 3, kb 4, kb 5,                                  kb 6, kb 7, kb 8, kb 9, kb 10, kb 11,
+    // ___, kb 11, kb 12, kb 13, kb 14, kb 15,                              ___, ___, ___, ___, ___, ___,
+    // ___, ___, ___, ___, ___, ___,                                        ___, ___, ___, ___, ___, ___,
+    // ___, ___, ___, ___, ___, ___,                                        ___, ___, ___, ___, ___, ___,
+  ),
+
+  [5] = LAYOUT_universal(
+    _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,                   _______, KC_MS_BTN1, KC_MS_BTN2, _______, KC_MS_BTN3, _______,
+    _______, _______, _______, _______, _______, _______,                   _______, KC_MS_BTN4, KC_MS_BTN5, _______, _______, _______,
+    _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______
+    // ___, ___, ___, ___, ___, ___,                                        ___, ___, ___, ___, ___, ___,
+    // ___, ___, ___, ___, ___, ___,                                        ___, mouse btn1, mouse btn2, scroll mode, mouse btn3, ___,
+    // ___, ___, ___, ___, ___, ___,                                        ___, mouse btn4, mouse btn5, ___, ___, ___,
+    // ___, ___, ___, ___, ___, ___,                                        ___, ___, ___, ___, ___, ___,
+  ),
+
+  // layerを追加するときはこれをコピーして使う
+  // _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+  // _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+  // _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+  // _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______
+
 };
 // clang-format on
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    // Auto enable scroll mode when the highest layer is 3
-    keyball_set_scroll_mode(get_highest_layer(state) == 3);
+    // Auto enable scroll mode when the highest layer is 5
+    keyball_set_scroll_mode(get_highest_layer(state) == 5);
     return state;
 }
 
