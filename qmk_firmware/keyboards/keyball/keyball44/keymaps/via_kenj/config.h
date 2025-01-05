@@ -40,3 +40,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUTO_MOUSE_DEFAULT_LAYER 1
 
 #define KEYBALL_SCROLLSNAP_ENABLE 0 // スクロールモードのスナップを無効にする（上下左右のスクロールを可能にする）
+
+#define TAPPING_TERM 180 // タップの判定時間 デフォルトは200ms
