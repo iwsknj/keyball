@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
   [0] = LAYOUT_universal(
     KC_TAB, KC_Q , KC_W, KC_E, KC_R, KC_T,                                  KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
-    CTL_T(KC_ESC), KC_A , KC_S, KC_D, KC_F, KC_G,                           KC_H, KC_J, KC_K, KC_L, KC_SCLN, LT(5,KC_QUOT),
+    CTL_T(KC_ESC), KC_A , KC_S, KC_D, KC_F, KC_G,                           KC_H, KC_J, KC_K, KC_L, KC_SCLN, LT(1,KC_QUOT),
     KC_LSFT, KC_Z , KC_X, KC_C, KC_V, KC_B,                                 KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
     _______, _______, KC_LGUI, LT(2,KC_LNG2),LT(1,KC_SPC),                  LT(4, KC_ENT), LT(3,KC_LNG1), _______, _______, KC_RALT
     // tab, q, w, e, r, t,                                                  y, u, i, o, p, bspc
@@ -77,6 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // ___, ___, ___, ___, ___, ___,                                        ___, ___, ___, ___, ___, ___,
   ),
 
+  // MEMO: layer5の導線が無いけど一旦このままにして使って不要なら削除する
   [5] = LAYOUT_universal(
     _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,                   _______, KC_MS_BTN1, KC_MS_BTN2, _______, KC_MS_BTN3, _______,
