@@ -41,4 +41,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define KEYBALL_SCROLLSNAP_ENABLE 0 // スクロールモードのスナップを無効にする（上下左右のスクロールを可能にする）
 
-#define TAPPING_TERM 180 // タップの判定時間 デフォルトは200ms
+#define TAPPING_TERM 170 // タップの判定時間 デフォルトは200ms

@@ -20,6 +20,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
+// カスタムキーコードの定義
+enum custom_keycodes {
+    SPC_CMD = SAFE_RANGE,  // SAFE_RANGE 以降でキーコードを定義
+};
+
+// キーが押されたときの処理
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case SPC_CMD:
+            if (record->event.pressed) {
+                // キーが押されたときの処理
+                SEND_STRING(SS_LGUI(" "));  // Command + Space
+            }
+            return false;  // 他の処理は行わない
+    }
+    return true;
+}
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
@@ -27,11 +45,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB, KC_Q , KC_W, KC_E, KC_R, KC_T,                                  KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
     CTL_T(KC_ESC), KC_A , KC_S, KC_D, KC_F, KC_G,                           KC_H, KC_J, KC_K, KC_L, KC_SCLN, LT(1,KC_QUOT),
     KC_LSFT, KC_Z , KC_X, KC_C, KC_V, KC_B,                                 KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
-    _______, _______, KC_LGUI, LT(2,KC_LNG2),LT(1,KC_SPC),                  LT(4, KC_ENT), LT(3,KC_LNG1), _______, _______, KC_RALT
+    _______, SPC_CMD, KC_LGUI, LT(2,KC_LNG2),KC_SPC,                  LT(4, KC_ENT), LT(3,KC_LNG1), _______, _______, KC_RALT
     // tab, q, w, e, r, t,                                                  y, u, i, o, p, bspc
     // esc, a, s, d, f, g,                                                  h, j, k, l, ;, hold:layer5 tap:'
     // shift, z, x, c, v, b,                                                n, m, ,, ., /, rshift
-    // command, hold:layer2 tap:lng2, hold:layer1 tap:lng1, space,          hold:layer4 tap:ent, hold:layer2 tap:lng1, alt
+    // ___, space cmd同時押し command, hold:layer2 tap:lng2, space,          hold:layer4 tap:ent, hold:layer2 tap:lng1, alt
   ),
 
   [1] = LAYOUT_universal(
